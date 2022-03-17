@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
-public class AttackNormal : ActionNode
+public class GetPosition : ActionNode
 {
     protected override void OnStart() {
     }
