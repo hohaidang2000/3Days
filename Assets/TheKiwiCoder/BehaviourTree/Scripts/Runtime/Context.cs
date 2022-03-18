@@ -20,6 +20,7 @@ namespace TheKiwiCoder {
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
         public AudioSource audioSource;
+        public FieldOfView fieldOfView;
         // Add other game specific systems here
 
         public static Context CreateFromGameObject(GameObject gameObject) {
@@ -35,6 +36,8 @@ namespace TheKiwiCoder {
             context.capsuleCollider = gameObject.GetComponent<CapsuleCollider>();
             context.characterController = gameObject.GetComponent<CharacterController>();
             context.audioSource = gameObject.GetComponent<AudioSource>();
+            context.fieldOfView = gameObject.GetComponent<FieldOfView>();
+           
             
             // Add whatever else you need here...
 

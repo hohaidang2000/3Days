@@ -1,19 +1,17 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using TheKiwiCoder;
 
-public class CheckIsInRange : ActionNode
+public class FieldOfView : MonoBehaviour
 {
-    bool playerDetected;
-    
+
 	public float viewRadius;
 	[Range(0, 360)]
 	public float viewAngle;
 
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
-	public bool seePlayer = false;
+
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
@@ -22,47 +20,56 @@ public class CheckIsInRange : ActionNode
 	public float edgeDstThreshold;
 
 	public float maskCutawayDst = .1f;
-	
+	public bool seePlayer = false;
 
 	public MeshFilter viewMeshFilter;
-	public Mesh viewMesh;
-	protected override void OnStart() {
-		FindVisibleTargets();
-    }
+	Mesh viewMesh;
+
+	void Start()
+	{
+		viewMesh = new Mesh();
+		viewMesh.name = "View Mesh";
+		viewMeshFilter.mesh = viewMesh;
+
+		StartCoroutine("FindTargetsWithDelay", .2f);
+	}
+
+
+	IEnumerator FindTargetsWithDelay(float delay)
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(delay);
+			FindVisibleTargets();
+		}
+	}
+
+	void LateUpdate()
+	{
+		DrawFieldOfView();
+	}
+
 	void FindVisibleTargets()
 	{
-		seePlayer = false;
 		visibleTargets.Clear();
-		Collider[] targetsInViewRadius = Physics.OverlapSphere(context.transform.position, viewRadius, targetMask);
+		Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 		for (int i = 0; i < targetsInViewRadius.Length; i++)
 		{
 			Transform target = targetsInViewRadius[i].transform;
-			Vector3 dirToTarget = (target.position - context.transform.position).normalized;
-			if (Vector3.Angle(context.transform.forward, dirToTarget) < viewAngle / 2)
+			Vector3 dirToTarget = (target.position - transform.position).normalized;
+			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 			{
-				float dstToTarget = Vector3.Distance(context.transform.position, target.position);
-				if (!Physics.Raycast(context.transform.position, dirToTarget, dstToTarget, obstacleMask))
+				float dstToTarget = Vector3.Distance(transform.position, target.position);
+				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
 					seePlayer = true;
-					blackboard.moveToPosition = target.transform.position;
 					visibleTargets.Add(target);
 				}
 			}
 		}
 	}
-	protected override void OnStop() {
-    }
 
-    protected override State OnUpdate() {
-		DrawFieldOfView();
-		if (seePlayer)
-        {
-            return State.Success;
-        }
-        return State.Failure;
-        
-    }
 	void DrawFieldOfView()
 	{
 		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
@@ -71,7 +78,7 @@ public class CheckIsInRange : ActionNode
 		ViewCastInfo oldViewCast = new ViewCastInfo();
 		for (int i = 0; i <= stepCount; i++)
 		{
-			float angle = context.transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
+			float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
 			ViewCastInfo newViewCast = ViewCast(angle);
 
 			if (i > 0)
@@ -104,7 +111,7 @@ public class CheckIsInRange : ActionNode
 		vertices[0] = Vector3.zero;
 		for (int i = 0; i < vertexCount - 1; i++)
 		{
-			vertices[i + 1] = context.transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * maskCutawayDst;
+			vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]) + Vector3.forward * maskCutawayDst;
 
 			if (i < vertexCount - 2)
 			{
@@ -113,7 +120,7 @@ public class CheckIsInRange : ActionNode
 				triangles[i * 3 + 2] = i + 2;
 			}
 		}
-		
+
 		viewMesh.Clear();
 
 		viewMesh.vertices = vertices;
@@ -156,13 +163,13 @@ public class CheckIsInRange : ActionNode
 		Vector3 dir = DirFromAngle(globalAngle, true);
 		RaycastHit hit;
 
-		if (Physics.Raycast(context.transform.position, dir, out hit, viewRadius, obstacleMask))
+		if (Physics.Raycast(transform.position, dir, out hit, viewRadius, obstacleMask))
 		{
 			return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
 		}
 		else
 		{
-			return new ViewCastInfo(false, context.transform.position + dir * viewRadius, viewRadius, globalAngle);
+			return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
 		}
 	}
 
@@ -170,7 +177,7 @@ public class CheckIsInRange : ActionNode
 	{
 		if (!angleIsGlobal)
 		{
-			angleInDegrees += context.transform.eulerAngles.y;
+			angleInDegrees += transform.eulerAngles.y;
 		}
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
 	}
