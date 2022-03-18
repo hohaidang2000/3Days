@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     #region Variables
 
-    private PlayerInputControls controls;
+    private PlayerControls controls;
     
     private Vector2 _move;
     private Vector2 _rotate;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Awake()
     {
-        controls = new PlayerInputControls();
+        controls = new PlayerControls();
         controls.Player.Jump.performed += ctx => Jump();
 
         controls.Player.Run.performed += ctx => speed = runSpeed;
