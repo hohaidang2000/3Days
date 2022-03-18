@@ -9,16 +9,22 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
 
     private PlayerControls controls;
-    
+    [SerializeField] private float mouseSensitivity = 100f;
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private Transform groundCheck;
+   
+    [SerializeField] private LayerMask groundMask;
     private Vector2 _move;
     private Vector2 _rotate;
-    
+    private Vector3 velocity;
+    private bool isGround;
     private float speed;
     private float jumpStarted;
-    
+    private float gravity = -9.81f;
+    private float grounDistance = 0.01f;
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float runSpeed = 10f;
-
+    [SerializeField] private float jumpHeight = 3f;
     [SerializeField] private Camera playerCamera;
     
     private Vector3 cameraRotation;
@@ -63,21 +69,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        cameraRotation = new Vector3(cameraRotation.x + _rotate.y, cameraRotation.y + _rotate.x, cameraRotation.z);
-        playerCamera.transform.eulerAngles = cameraRotation;
-
-        transform.eulerAngles = new Vector3(transform.rotation.x, cameraRotation.y, transform.rotation.z);
-        transform.Translate(Vector3.right * Time.deltaTime * _move.x * speed, Space.Self);
-        transform.Translate(Vector3.forward * Time.deltaTime * _move.y * speed, Space.Self);
-
-        if (jumpStarted + 0.5f > Time.time)
-        {
-            transform.Translate((Vector3.up * 8f * Time.deltaTime), Space.Self);
-        }
-        else if (jumpStarted + 1f > Time.time)
-        {
-            transform.Translate((Vector3.up * -8f * Time.deltaTime), Space.Self);
-        }
+        CameraRotate();
+        Move();
+        IsGround();
     }
 
     private void FixedUpdate()
@@ -91,8 +85,41 @@ public class PlayerMovement : MonoBehaviour
     #region Methods
     private void Jump()
     {
-        if (jumpStarted + 1f < Time.time)
-            jumpStarted = Time.time;
+        if (isGround){
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        isGround = false;
+        }
+        //if (jumpStarted + 1f < Time.time)
+            //jumpStarted = Time.time;
+    }
+    private void CameraRotate(){
+        cameraRotation = new Vector3(cameraRotation.x + _rotate.y, cameraRotation.y + _rotate.x, cameraRotation.z);
+        if (cameraRotation.x >= 90)
+            cameraRotation.x=90f;
+        if (cameraRotation.x <= -90)
+            cameraRotation.x=-90f;    
+        playerCamera.transform.eulerAngles = cameraRotation;
+        transform.eulerAngles = new Vector3(transform.rotation.x, cameraRotation.y, transform.rotation.z);
+        
+    }
+    private void Move()
+    {
+        Vector3 _temp = transform.right * _move.x +transform.forward * _move.y;
+        controller.Move(_temp * speed * Time.deltaTime);
+    }
+    void IsGround(){
+        isGround = Physics.CheckSphere(groundCheck.position, grounDistance, groundMask);
+        
+        if (isGround && velocity.y < 0 ) 
+        {
+            Debug.Log(velocity.y);
+            velocity.y= 0f;
+        }
+        else 
+        {
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+        }
     }
     #endregion
 
