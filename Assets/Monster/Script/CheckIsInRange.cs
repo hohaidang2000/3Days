@@ -25,7 +25,7 @@ public class CheckIsInRange : ActionNode
 	
 
 	public MeshFilter viewMeshFilter;
-	public Mesh viewMesh;
+	//public Mesh viewMesh;
 	protected override void OnStart() {
 		FindVisibleTargets();
     }
@@ -65,6 +65,7 @@ public class CheckIsInRange : ActionNode
     }
 	void DrawFieldOfView()
 	{
+		/*
 		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
 		float stepAngleSize = viewAngle / stepCount;
 		List<Vector3> viewPoints = new List<Vector3>();
@@ -113,12 +114,13 @@ public class CheckIsInRange : ActionNode
 				triangles[i * 3 + 2] = i + 2;
 			}
 		}
-		
+	
 		viewMesh.Clear();
 
 		viewMesh.vertices = vertices;
 		viewMesh.triangles = triangles;
 		viewMesh.RecalculateNormals();
+		*/
 	}
 
 

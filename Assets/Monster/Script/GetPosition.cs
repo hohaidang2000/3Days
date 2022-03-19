@@ -12,6 +12,7 @@ public class GetPosition : ActionNode
     }
 
     protected override State OnUpdate() {
+        blackboard.moveToPosition = context.targetTransform.transform.position;
         return State.Success;
     }
 }
