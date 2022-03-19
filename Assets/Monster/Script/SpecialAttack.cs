@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
-public class Attack : ActionNode
+public class SpecialAttack : ActionNode
 {
     protected override void OnStart() {
     }
@@ -12,7 +12,6 @@ public class Attack : ActionNode
     }
 
     protected override State OnUpdate() {
-        context.animator.SetTrigger("attack");
         return State.Success;
     }
 }

@@ -6,7 +6,7 @@ public class MobAnimatorController : MonoBehaviour
 {
     public Animator animator;
     public string state = "idle" ;
-    public float moveSpeed = 0;
+    public float moveSpeed = 1;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class MobAnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setMoveSpeed(moveSpeed);
+        //setMoveSpeed(moveSpeed);
         switch (state)
         {
             case "attack":
