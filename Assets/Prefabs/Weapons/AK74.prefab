@@ -281,13 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627f289a49c22a44fa151721023dec0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
-  maxAmmo: 40
-  damage: 10
-  barrel: {fileID: 3954597466557294727}
-  muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
-  hotTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
-  metalImpact: {fileID: 872853909075477886, guid: b5a092d25c55c6d43bbf3499d94e0ee7, type: 3}
+  _playerCamera: {fileID: 0}
+  _maxAmmo: 40
+  _barrel: {fileID: 3954597466557294727}
+  _muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  _hotTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
+  _metalImpact: {fileID: 872853909075477886, guid: b5a092d25c55c6d43bbf3499d94e0ee7, type: 3}
 --- !u!114 &1929027610061962256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4208f32c6591cf94eab0013edc1b409d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  _damage: 10
 --- !u!1 &1927369336514790
 GameObject:
   m_ObjectHideFlags: 0

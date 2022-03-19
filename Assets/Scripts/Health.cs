@@ -8,9 +8,9 @@ public class Health :MonoBehaviour
 
     #region Variables
 
-    [SerializeField] private float health;
+    [SerializeField] private float _health;
 
-    [SerializeField] private UnityEvent onDie;
+    [SerializeField] private UnityEvent _onDie;
 
     #endregion
 
@@ -18,16 +18,16 @@ public class Health :MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        _health -= damage;
         
-        if (health <= 0f)
+        if (_health <= 0f)
             Die();
         
     }
 
     private void Die()
     {
-        onDie.Invoke();
+        _onDie.Invoke();
     }
 
     #endregion

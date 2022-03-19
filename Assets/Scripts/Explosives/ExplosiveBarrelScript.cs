@@ -4,17 +4,13 @@ using System.Collections;
 public class ExplosiveBarrelScript : MonoBehaviour
 {
 
-    private float randomTime;
-
-    //Used to check if the barrel 
-    //has been hit and should explode 
-    public bool explode = false;
+    private float _randomTime;
 
     [Header("Prefabs")]
     //The explosion prefab
-    public Transform explosionPrefab;
+    public Transform explosion;
     //The destroyed barrel prefab
-    public Transform destroyedBarrelPrefab;
+    public Transform destroyedBarrel;
 
     [Header("Customizable Options")]
     //Minimum time before the barrel explodes
@@ -28,42 +24,33 @@ public class ExplosiveBarrelScript : MonoBehaviour
     //How powerful the explosion is
     public float explosionForce = 4000.0f;
 
-    public void ExplodeProcess()
+    public void StartExplode()
     {
-        randomTime = Random.Range(minTime, maxTime);
+        _randomTime = Random.Range(minTime, maxTime);
         StartCoroutine(Explode());
     }
 
     private IEnumerator Explode()
     {
         //Wait for set amount of time
-        yield return new WaitForSeconds(randomTime);
+        yield return new WaitForSeconds(_randomTime);
 
         //Spawn the destroyed barrel prefab
-        Instantiate(destroyedBarrelPrefab, transform.position,transform.rotation);
+        Instantiate(destroyedBarrel, transform.position, transform.rotation);
 
         //Explosion force
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
         foreach (Collider hit in colliders)
         {
-            
             if (hit.TryGetComponent(out Rigidbody rb))
                 rb.AddExplosionForce(explosionForce * 50, explosionPos, explosionRadius);
 
             transform.GetComponent<Damage>().InflictDamage(hit.gameObject);
-
         }
 
-        //Raycast downwards to check the ground tag
-        RaycastHit checkGround;
-        if (Physics.Raycast(transform.position, Vector3.down, out checkGround, 50))
-        {
-            Instantiate(explosionPrefab, checkGround.point,
-                Quaternion.FromToRotation(Vector3.forward, checkGround.normal));
-        }
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
-        //Destroy the current barrel object
         Destroy(gameObject);
     }
 }
