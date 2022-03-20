@@ -7,16 +7,18 @@ public class CheckIsInRange : ActionNode
 {
     bool playerDetected;
     
-	public float viewRadius;
-	[Range(0, 360)]
-	public float viewAngle;
+	public float viewRadius = 40;
+	//[Range(0, 360)]
+	//public float viewAngle;
 
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 	public bool seePlayer = false;
+	/*
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
-
+	*/
+	public Transform visibleTargets ;
 	public float meshResolution;
 	public int edgeResolveIterations;
 	public float edgeDstThreshold;
@@ -32,24 +34,23 @@ public class CheckIsInRange : ActionNode
 	void FindVisibleTargets()
 	{
 		seePlayer = false;
-		visibleTargets.Clear();
+		
 		Collider[] targetsInViewRadius = Physics.OverlapSphere(context.transform.position, viewRadius, targetMask);
 
-		for (int i = 0; i < targetsInViewRadius.Length; i++)
+		if (targetsInViewRadius.Length >0)
 		{
-			Transform target = targetsInViewRadius[i].transform;
+			Transform target = targetsInViewRadius[0].transform;
 			Vector3 dirToTarget = (target.position - context.transform.position).normalized;
-			if (Vector3.Angle(context.transform.forward, dirToTarget) < viewAngle / 2)
+			float dstToTarget = Vector3.Distance(context.transform.position, target.position);
+			
 			{
-				float dstToTarget = Vector3.Distance(context.transform.position, target.position);
-				if (!Physics.Raycast(context.transform.position, dirToTarget, dstToTarget, obstacleMask))
-				{
-					seePlayer = true;
-					blackboard.moveToPosition = target.transform.position;
-					visibleTargets.Add(target);
-				}
+				seePlayer = true;
+				blackboard.moveToPosition = target.transform.position;
+
 			}
 		}
+			
+		
 	}
 	protected override void OnStop() {
     }

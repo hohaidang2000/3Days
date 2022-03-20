@@ -5,19 +5,19 @@ using TheKiwiCoder;
 
 public class MoveToPosition : ActionNode
 {
-    public float speed = 5;
-    public float stoppingDistance = 0.1f;
-    public bool updateRotation = true;
-    public float acceleration = 40.0f;
+    //public float speed = 5;
+    //public float stoppingDistance = 0.1f;
+    //public bool updateRotation = true;
+    //public float acceleration = 40.0f;
     public float tolerance = 1.0f;
 
     protected override void OnStart() {
-        context.agent.stoppingDistance = stoppingDistance;
-        context.agent.speed = speed;
+        //context.agent.stoppingDistance = stoppingDistance;
+        //context.agent.speed = speed;
         context.agent.destination = blackboard.moveToPosition;
-        context.agent.updateRotation = updateRotation;
-        context.agent.acceleration = acceleration;
-        context.animator.SetFloat("moveSpeed", context.agent.velocity.magnitude);
+        //context.agent.updateRotation = updateRotation;
+        //context.agent.acceleration = acceleration;
+        context.animator.SetFloat("moveSpeed", context.agent.speed);
     }
 
     protected override void OnStop() {

@@ -106,16 +106,15 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  viewRadius: 0
-  viewAngle: 0
+  viewRadius: 30
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   seePlayer: 0
-  visibleTargets: []
+  visibleTargets: {fileID: 0}
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
@@ -353,10 +352,6 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  speed: 5
-  stoppingDistance: 0.1
-  updateRotation: 1
-  acceleration: 5
   tolerance: 1
 --- !u!114 &3336958668963580560
 MonoBehaviour:
@@ -402,10 +397,6 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  speed: 5
-  stoppingDistance: 0.1
-  updateRotation: 1
-  acceleration: 5
   tolerance: 1
 --- !u!114 &4999875924944164240
 MonoBehaviour:
@@ -450,10 +441,6 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  speed: 5
-  stoppingDistance: 0.1
-  updateRotation: 1
-  acceleration: 2
   tolerance: 1
 --- !u!114 &8062104422149655480
 MonoBehaviour:
