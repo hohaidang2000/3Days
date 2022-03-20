@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     #region Variables
 
     private PlayerControls controls;
-    [SerializeField] private float mouseSensitivity = 100f;
+    private GameObject currentGun;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform groundCheck;
    
@@ -19,10 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isGround;
     private float speed;
-    private float jumpStarted;
     private float gravity = -9.81f;
     private float grounDistance = 0.01f;
-    [SerializeField] private float walkSpeed = 3f;
+    [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpHeight = 3f;
     [SerializeField] private Camera playerCamera;
@@ -47,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         controls = new PlayerControls();
         controls.Player.Jump.performed += ctx => Jump();
 
+        controls.Player.Aim.performed += ctx => Aim();
+
         controls.Player.Run.performed += ctx => speed = runSpeed;
         controls.Player.Run.canceled += ctx => speed = walkSpeed;
 
@@ -63,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
         speed = walkSpeed;
         
         cameraRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-        
-        jumpStarted = -1f;
         
     }
     private void Update()
@@ -112,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (isGround && velocity.y < 0 ) 
         {
-            Debug.Log(velocity.y);
+            //Debug.Log(velocity.y);
             velocity.y= 0f;
         }
         else 
@@ -120,6 +119,9 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         }
+    }
+    void Aim(){
+        
     }
     #endregion
 
