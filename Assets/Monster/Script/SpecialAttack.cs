@@ -5,6 +5,7 @@ using TheKiwiCoder;
 
 public class SpecialAttack : ActionNode
 {
+    public float pullSpeed = 5;
     protected override void OnStart() {
     }
 
@@ -14,7 +15,7 @@ public class SpecialAttack : ActionNode
     protected override State OnUpdate() {
         context.animator.SetTrigger("attack");
         Vector3 dirToTarget = (context.transform.position - context.targetTransform.targetGameObject.transform.position).normalized;
-        context.targetTransform.tartgetController.Move(dirToTarget*Time.deltaTime);
+        context.targetTransform.tartgetController.Move(dirToTarget*pullSpeed*Time.deltaTime);
         return State.Success;
     }
 }

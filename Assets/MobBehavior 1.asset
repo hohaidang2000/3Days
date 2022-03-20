@@ -20,6 +20,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  clip: {fileID: 8300000, guid: 4cc52829364027e47b1282538af6c472, type: 3}
 --- !u!114 &-7642712478732958467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +82,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 594b534cc905f764883d659cb89d5a38
-  position: {x: -885.6001, y: 955.19995}
+  position: {x: -810.4, y: 1021.6}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -104,11 +105,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7c6cb000d4df503429673964a8a35752
-  position: {x: -896.967, y: 1082.3304}
+  position: {x: -821.60004, y: 1148.7999}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  pullSpeed: 5
 --- !u!114 &-5941697233485018672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +126,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2f4cb035481ceb24e91a4f96dd6290ea
-  position: {x: 453.59988, y: 468.8}
+  position: {x: 606.49854, y: 468.79996}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -144,7 +146,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 64c2ca8ec3a7c1d499def1ca6f6292f5
-  position: {x: -1047.1998, y: 1082.4}
+  position: {x: -971.9998, y: 1148.7999}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -165,7 +167,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fb711f848f3aeeb40998a73c163eae51
-  position: {x: -1387.9998, y: 979.19995}
+  position: {x: -1311.9996, y: 947.1999}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -185,7 +187,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2d847cad5354536418a110cb52e06515
-  position: {x: -1210.3998, y: 803.1999}
+  position: {x: -1135.1998, y: 867.2}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -225,6 +227,27 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   child: {fileID: 1001821814783468716}
+--- !u!114 &-3598043454690883968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fe442b682fe3c47b29661f3d104b93, type: 3}
+  m_Name: PlaySound
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2b2e8fd6cc38d7946b12b6c9a8f453d0
+  position: {x: 456, y: 468.7999}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  audioClip: {fileID: 8300000, guid: ef6fb6fb30b3bd34d893c80334586684, type: 3}
 --- !u!114 &-3563648513671003795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +270,7 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: 2820406020254752056}
+  - {fileID: 8391361063670017668}
   - {fileID: -5327719184058854669}
 --- !u!114 &-2477494217871406671
 MonoBehaviour:
@@ -263,11 +287,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7788fb40560f4954aaa6ff1baab1f138
-  position: {x: -1059.9998, y: 803.1999}
+  position: {x: -984.8, y: 869.60004}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  audioClip: {fileID: 8300000, guid: 7b8b916b5d4f66243a477e6849d1a8ee, type: 3}
 --- !u!114 &-1174260736846278856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +331,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9847f83e26873a742a15c2a342c4b168
-  position: {x: -911.20013, y: 596.2686}
+  position: {x: -835.99994, y: 662.4}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -401,6 +426,8 @@ MonoBehaviour:
   - {fileID: 155172079176687683}
   - {fileID: -5554313541561261942}
   - {fileID: -6606279556504455331}
+  - {fileID: 8391361063670017668}
+  - {fileID: -3598043454690883968}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &155172079176687683
@@ -418,7 +445,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d91a77b63534fb448a038469f4597715
-  position: {x: -885.24927, y: 803.1999}
+  position: {x: -809.6, y: 869.60004}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -513,7 +540,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  viewRadius: 3
+  viewRadius: 5
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -550,6 +577,7 @@ MonoBehaviour:
   children:
   - {fileID: -295085040554598368}
   - {fileID: 4920028032330482166}
+  - {fileID: -3598043454690883968}
   - {fileID: -5941697233485018672}
 --- !u!114 &4920028032330482166
 MonoBehaviour:
@@ -658,3 +686,24 @@ MonoBehaviour:
   drawGizmos: 0
   children:
   - {fileID: -3563648513671003795}
+--- !u!114 &8391361063670017668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fe442b682fe3c47b29661f3d104b93, type: 3}
+  m_Name: PlaySound
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ebc3b756247e84843bc1c3ec8daf2046
+  position: {x: -1467.2, y: 947.19995}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  audioClip: {fileID: 8300000, guid: ef6fb6fb30b3bd34d893c80334586684, type: 3}

@@ -6,8 +6,11 @@ using TheKiwiCoder;
 
 public class PlaySound : ActionNode
 {
+    public AudioClip audioClip;
     protected override void OnStart() {
-        context.audioSource.Play();
+        context.audioSource.clip = audioClip;
+        if(context.audioSource.isPlaying == false)
+            context.audioSource.Play();
     }
 
     protected override void OnStop() {

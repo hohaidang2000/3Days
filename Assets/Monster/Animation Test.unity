@@ -262,7 +262,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh86702
+  m_Name: pb_Mesh21258
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3458,7 +3458,7 @@ MonoBehaviour:
   enemy: {fileID: 1391888325556504}
   maxCount: 10
   count: 0
-  rate: 1
+  rate: 0.5
   timeBetweenWave: 5
   waveCountdown: 0
   state: 1
@@ -3783,6 +3783,10 @@ PrefabInstance:
     - target: {fileID: 1553145905, guid: 1ed4c506fb152e6488ea78a0f76ed782, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391888325556499, guid: 1ed4c506fb152e6488ea78a0f76ed782, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1391888325556500, guid: 1ed4c506fb152e6488ea78a0f76ed782, type: 3}
       propertyPath: targetGameObject

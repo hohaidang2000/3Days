@@ -5,6 +5,7 @@ using TheKiwiCoder;
 
 public class IsAlive : ActionNode
 {
+    public AudioClip clip;
     protected override void OnStart() {
     }
 
@@ -13,7 +14,11 @@ public class IsAlive : ActionNode
 
     protected override State OnUpdate() {
         if (context.mobAnimatorController.state == "dead")
+        {
+            context.audioSource.clip = clip;
+            context.audioSource.Play();
             return State.Failure;
+        }
         else
         {
             return State.Success;
