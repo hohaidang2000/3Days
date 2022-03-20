@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Aim",
-                    "type": "Button",
-                    "id": "85ac6570-69ef-4b00-b5d1-4d8a0148ec14",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -139,15 +130,52 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Weapon",
+            "id": "b26bc461-9be3-4834-aa5c-a1aa3bed601f",
+            "actions": [
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "dee9d831-e2b5-4a17-9975-7f9924791f31",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
+                    "name": "SwitchWeapon",
+                    "type": "PassThrough",
+                    "id": "cb6148f9-bdd7-4628-882e-743eef9ba85a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "510be2a6-54d6-4e97-ac7b-ee23a5403e83",
+                    "id": "a3c512ef-96c7-4ad8-8113-19d78ef3d5ff",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da80dfb0-1ae7-4fe2-857a-ab86807214f6",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

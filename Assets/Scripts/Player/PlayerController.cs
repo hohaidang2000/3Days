@@ -9,10 +9,8 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     private PlayerControls controls;
-    private GameObject currentGun;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform groundCheck;
-   
     [SerializeField] private LayerMask groundMask;
     private Vector2 _move;
     private Vector2 _rotate;
@@ -45,8 +43,6 @@ public class PlayerController : MonoBehaviour
     {
         controls = new PlayerControls();
         controls.Player.Jump.performed += ctx => Jump();
-
-        controls.Player.Aim.performed += ctx => Aim();
 
         controls.Player.Run.performed += ctx => speed = runSpeed;
         controls.Player.Run.canceled += ctx => speed = walkSpeed;
@@ -88,8 +84,6 @@ public class PlayerController : MonoBehaviour
         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         isGround = false;
         }
-        //if (jumpStarted + 1f < Time.time)
-            //jumpStarted = Time.time;
     }
     private void CameraRotate(){
         cameraRotation = new Vector3(cameraRotation.x + _rotate.y, cameraRotation.y + _rotate.x, cameraRotation.z);
@@ -111,7 +105,6 @@ public class PlayerController : MonoBehaviour
         
         if (isGround && velocity.y < 0 ) 
         {
-            //Debug.Log(velocity.y);
             velocity.y= 0f;
         }
         else 
@@ -119,9 +112,6 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         }
-    }
-    void Aim(){
-        
     }
     #endregion
 
