@@ -16,27 +16,29 @@ public class GunController : MonoBehaviour
 
     private Animator _animator;
 
-    private int _firingHash = Animator.StringToHash("firing");
-    private int _reloadingHash = Animator.StringToHash("reloading");
+    private int _fireHash = Animator.StringToHash("isFire");
+    private int _reloadHash = Animator.StringToHash("isReload");
 
     [Header("Ammo")]
 
     [SerializeField] private int _maxAmmo = 40;
     private int _currentAmmo;
 
-    [Header("Firing")]
+    [Header("Fire")]
 
     [SerializeField] private Transform _barrel;
     [SerializeField] private ParticleSystem _muzzleFlash;
-    [SerializeField] private TrailRenderer _hotTrail;   
+    [SerializeField] private TrailRenderer _hotTrail;
     [SerializeField] private ParticleSystem _metalImpact;
-    
-    private bool _firing;
-    private float _fireRate = 10f;
+
+    private bool _isFire;
+    [SerializeField] private float _fireRate;
     private float _lastFired;
 
-    private bool _reloading;
-    private float _reloadTime = 1.833f;
+    [Header("Reload")]
+
+    private bool _isReload;
+    [SerializeField] private float _reloadTime;
 
     #endregion
 
@@ -54,10 +56,10 @@ public class GunController : MonoBehaviour
 
         _controls = new GunControls();
 
-        _controls.Gun.Reload.performed += ctx => Reload();
+        _controls.Gun.Reload.performed += ctx => ProcessReload();
 
-        _controls.Gun.Fire.performed += ctx => _firing = true;
-        _controls.Gun.Fire.canceled += ctx => _firing = false;
+        _controls.Gun.Fire.performed += ctx => _isFire = true;
+        _controls.Gun.Fire.canceled += ctx => _isFire = false;
 
     }
 
@@ -88,23 +90,23 @@ public class GunController : MonoBehaviour
 
     private void ProcessFire()
     {
-        if (_reloading)
+        if (_isReload)
             return;
 
         if (Time.time - _lastFired >= 1/_fireRate)
         {
-            _animator.SetBool(_firingHash, false);
+            _animator.SetBool(_fireHash, false);
 
             if (_currentAmmo == 0)
                 return;
 
-            if (_firing)
+            if (_isFire)
             {
                 Fire();
                 _lastFired = Time.time;
                 _currentAmmo -= 1;
                 Instantiate(_muzzleFlash, _barrel.position, Quaternion.Euler(-transform.forward));
-                _animator.SetBool(_firingHash, true);
+                _animator.SetBool(_fireHash, true);
             }
         }
     }
@@ -113,13 +115,13 @@ public class GunController : MonoBehaviour
     {
         if (Physics.Raycast(_playerCamera.position, _playerCamera.forward, out RaycastHit hit))
         {
-            BulletAnimation(hit);
+            FireEffects(hit);
             transform.GetComponent<Damage>().InflictDamage(hit.collider.gameObject);           
         }
 
     }
 
-    private void BulletAnimation(RaycastHit hit)
+    private void FireEffects(RaycastHit hit)
     {
         TrailRenderer trail = Instantiate(_hotTrail, _barrel.position, Quaternion.identity);
         StartCoroutine(SpawnTrail(trail, hit.point));
@@ -145,24 +147,26 @@ public class GunController : MonoBehaviour
 
     }
     
-    private void Reload()
+    private void ProcessReload()
     {
-        
-        StartCoroutine(ReloadAnimation());
+        if (_currentAmmo == _maxAmmo)
+            return;
+
+        StartCoroutine(Reload());
     
     }
 
-    private IEnumerator ReloadAnimation()
+    private IEnumerator Reload()
     {
-        _reloading = true;
-        _animator.SetBool(_reloadingHash, true);
+        _isReload = true;
+        _animator.SetBool(_reloadHash, true);
 
         yield return new WaitForSeconds(_reloadTime - .25f);
-        _animator.SetBool(_reloadingHash, false);
+        _animator.SetBool(_reloadHash, false);
         yield return new WaitForSeconds(.25f);
 
         _currentAmmo = _maxAmmo;
-        _reloading = false;
+        _isReload = false;
     }
 
     //private voi

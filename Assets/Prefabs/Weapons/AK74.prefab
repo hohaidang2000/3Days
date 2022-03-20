@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4208f32c6591cf94eab0013edc1b409d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
+  _damage: 30
 --- !u!114 &-5547481528819511712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 0}
-  _maxAmmo: 40
+  _maxAmmo: 60
   _barrel: {fileID: 3954597466557294727}
   _muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   _hotTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
