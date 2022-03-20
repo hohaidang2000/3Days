@@ -65,10 +65,12 @@ public class SpawnTrigger : MonoBehaviour
     }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.tag);
+    {   
+        if(other.tag == "Player")
+            state = SpawnState.COUNTING;
+        //Debug.Log(other.tag);
         
-           state = SpawnState.COUNTING;
+           
         
     }
 

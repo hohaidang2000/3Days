@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
-public class GetPosition : ActionNode
+public class Pulling : ActionNode
 {
     protected override void OnStart() {
     }
@@ -12,7 +12,6 @@ public class GetPosition : ActionNode
     }
 
     protected override State OnUpdate() {
-        blackboard.moveToPosition = context.targetTransform.targetGameObject.transform.position;
         return State.Success;
     }
 }

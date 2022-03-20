@@ -12,6 +12,9 @@ public class SpecialAttack : ActionNode
     }
 
     protected override State OnUpdate() {
+        context.animator.SetTrigger("attack");
+        Vector3 dirToTarget = (context.transform.position - context.targetTransform.targetGameObject.transform.position).normalized;
+        context.targetTransform.tartgetController.Move(dirToTarget*Time.deltaTime);
         return State.Success;
     }
 }

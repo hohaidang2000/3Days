@@ -22,6 +22,7 @@ namespace TheKiwiCoder {
         public AudioSource audioSource;
         public FieldOfView fieldOfView;
         public TargetTransform targetTransform;
+        public MobAnimatorController mobAnimatorController;
         // Add other game specific systems here
 
         public static Context CreateFromGameObject(GameObject gameObject) {
@@ -39,7 +40,7 @@ namespace TheKiwiCoder {
             context.audioSource = gameObject.GetComponent<AudioSource>();
             context.fieldOfView = gameObject.GetComponent<FieldOfView>();
             context.targetTransform = gameObject.GetComponent<TargetTransform>();
-           
+            context.mobAnimatorController = gameObject.GetComponent<MobAnimatorController>();
             
             // Add whatever else you need here...
 

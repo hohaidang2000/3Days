@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TargetTransform : MonoBehaviour
 {
-    public GameObject tartgetTransform;
+    public CharacterController tartgetController;
+    public GameObject targetGameObject;
     // Start is called before the first frame update
     void Start()
     {
