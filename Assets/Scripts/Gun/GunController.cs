@@ -8,6 +8,8 @@ public class GunController : MonoBehaviour
 {
     #region Variables
 
+    [Header("Camera")]
+
     [SerializeField] private Transform _playerCamera;
 
     private GunControls _controls;
@@ -17,13 +19,16 @@ public class GunController : MonoBehaviour
     private int _firingHash = Animator.StringToHash("firing");
     private int _reloadingHash = Animator.StringToHash("reloading");
 
+    [Header("Ammo")]
+
     [SerializeField] private int _maxAmmo = 40;
     private int _currentAmmo;
 
+    [Header("Firing")]
+
     [SerializeField] private Transform _barrel;
     [SerializeField] private ParticleSystem _muzzleFlash;
-    [SerializeField] private TrailRenderer _hotTrail;
-    
+    [SerializeField] private TrailRenderer _hotTrail;   
     [SerializeField] private ParticleSystem _metalImpact;
     
     private bool _firing;
@@ -114,16 +119,6 @@ public class GunController : MonoBehaviour
 
     }
 
-    //private void InflictDamage(RaycastHit hit)
-    //{
-    //    hit.collider
-    //    Health health = hit.transform.GetComponent<Health>();
-    //    if (health != null)
-    //    {
-    //        health.TakeDamage(damage);
-    //    }
-    //}
-
     private void BulletAnimation(RaycastHit hit)
     {
         TrailRenderer trail = Instantiate(_hotTrail, _barrel.position, Quaternion.identity);
@@ -152,7 +147,9 @@ public class GunController : MonoBehaviour
     
     private void Reload()
     {
+        
         StartCoroutine(ReloadAnimation());
+    
     }
 
     private IEnumerator ReloadAnimation()
