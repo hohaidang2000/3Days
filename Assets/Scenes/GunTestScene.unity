@@ -445,6 +445,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ExplosiveBarrelScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082203815318362743, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
 --- !u!1 &705507993
@@ -735,6 +763,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 0
   _onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &963194225

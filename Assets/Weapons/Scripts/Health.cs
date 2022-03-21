@@ -12,6 +12,8 @@ public class Health :MonoBehaviour
 
     [SerializeField] private UnityEvent _onDie;
 
+    [SerializeField] private UnityEvent _onTakeDamage;
+
     #endregion
 
     #region Methods
@@ -19,7 +21,9 @@ public class Health :MonoBehaviour
     public void TakeDamage(float damage)
     {
         _health -= damage;
-        
+
+        _onTakeDamage.Invoke();
+
         if (_health <= 0f)
             Die();
         
