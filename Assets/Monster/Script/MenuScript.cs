@@ -21,8 +21,8 @@ public class MenuScript : MonoBehaviour
     public TextMeshProUGUI winGui;
     // Start is called before the first frame update
     void Awake()
-    {   
-
+    {
+        winGui.enabled = true;
         playerInput = new MenuInput();
         Time.timeScale = 1;
         player.enabled = true;
@@ -33,7 +33,7 @@ public class MenuScript : MonoBehaviour
             if (!running) { 
                 if(pause == false)
                 {
-                
+                    winGui.enabled = false;
                     pause = true;
                     Time.timeScale = 0;
                     Cursor.lockState = CursorLockMode.None;
@@ -42,6 +42,7 @@ public class MenuScript : MonoBehaviour
                 }
                 else
                 {
+                    winGui.enabled = true;
                     pause = false;
                     Time.timeScale = 1;
                     Cursor.lockState = CursorLockMode.Locked;
@@ -63,6 +64,7 @@ public class MenuScript : MonoBehaviour
     }
     public void loseHappen()
     {
+        winGui.enabled = false;
         running = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
@@ -80,6 +82,7 @@ public class MenuScript : MonoBehaviour
     }
     public void WinHappen()
     {
+        winGui.enabled = false;
         running = true;
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
