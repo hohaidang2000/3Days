@@ -19,6 +19,7 @@ public class MenuScript : MonoBehaviour
     public GameObject loseMenu;
     public bool pause = false;
     public TextMeshProUGUI winGui;
+    public TextMeshProUGUI healthGui;
     // Start is called before the first frame update
     void Awake()
     {   
@@ -72,6 +73,7 @@ public class MenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthGui.SetText(playerObject.GetComponent<Health>()._health.ToString());
         winGui.SetText(count + " / " + winCount);
         if(count == winCount)
         {

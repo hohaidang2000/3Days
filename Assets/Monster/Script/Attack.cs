@@ -26,7 +26,7 @@ public class Attack : ActionNode
                 if (hit.gameObject.tag == "Player")
                 {
                     Debug.Log("damage");
-                    context.gameObject.GetComponent<Damage>().InflictDamage(context.targetTransform.targetGameObject);
+                    context.gameObject.GetComponent<Damage>().InflictDamage(hit.gameObject);
                     context.animator.SetTrigger("attack");
                  }
            
