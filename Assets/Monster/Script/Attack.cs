@@ -10,9 +10,10 @@ public class Attack : ActionNode
 
     protected override void OnStop() {
     }
-
+    
     protected override State OnUpdate() {
         context.animator.SetTrigger("attack");
+        
         return State.Success;
     }
 }

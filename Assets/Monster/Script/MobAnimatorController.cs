@@ -22,6 +22,10 @@ public class MobAnimatorController : MonoBehaviour
     }
     
     // Update is called once per frame
+    public void Dead()
+    {
+        state = "dead";
+    }
     void Update()
     {
         //setMoveSpeed(moveSpeed);

@@ -67,6 +67,27 @@ MonoBehaviour:
   - {fileID: -7642712478732958467}
   - {fileID: 7366463412877603576}
   - {fileID: 1346570332164164259}
+--- !u!114 &-6222103311692318958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4489e3e257543504c8fc9f891246af6c, type: 3}
+  m_Name: MoveToPosition
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3b5069749f8471b4a9cebf21d0e367f2
+  position: {x: -1880, y: 1451.1997}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  tolerance: 1
 --- !u!114 &-5941697233485018672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +123,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fb711f848f3aeeb40998a73c163eae51
-  position: {x: -1763.2218, y: 1451.2001}
+  position: {x: -1733.0295, y: 1451.1997}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -208,6 +229,7 @@ MonoBehaviour:
   children:
   - {fileID: 2820406020254752056}
   - {fileID: -1197232485659949478}
+  - {fileID: -6222103311692318958}
   - {fileID: -5327719184058854669}
 --- !u!114 &-2477494217871406671
 MonoBehaviour:
@@ -245,7 +267,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0a1c183667f037242bfb352baa23ca30
-  position: {x: -1913.622, y: 1451.2001}
+  position: {x: -2030.3391, y: 1451.1997}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -313,7 +335,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0553cef9cbf27af4fb9aab3989ee5e79
-  position: {x: -1612.8, y: 1451.2002}
+  position: {x: -1582.6296, y: 1451.1997}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -406,6 +428,7 @@ MonoBehaviour:
   - {fileID: 3278229487032161683}
   - {fileID: -4462088139831435310}
   - {fileID: -490241962745431123}
+  - {fileID: -6222103311692318958}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &379676764796831137
@@ -534,7 +557,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6be9048b4ae33194aae0e8f7d1af5ed1
-  position: {x: -2064.022, y: 1451.2001}
+  position: {x: -2180.739, y: 1451.1997}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
