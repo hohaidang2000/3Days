@@ -66,6 +66,9 @@ public class GunController : MonoBehaviour
     private void OnEnable()
     {
         _controls.Gun.Enable();
+        _isReload = false;
+        _animator.SetBool(_reloadHash, false);
+
     }
 
     private void OnDisable()
