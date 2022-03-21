@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 8341260899874442796}
   - component: {fileID: 8341260899874442803}
   - component: {fileID: 1842485459053468789}
+  - component: {fileID: 3778230527153636365}
   - component: {fileID: 3677148004084111031}
   m_Layer: 3
   m_Name: Player
@@ -393,6 +394,38 @@ MonoBehaviour:
   runSpeed: 7
   jumpHeight: 3
   playerCamera: {fileID: 8341260899055531167}
+--- !u!114 &3778230527153636365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341260899874442802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba96edc89da2049bb63390d99f6652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  _health: 500
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_MethodName: loseHappen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3677148004084111031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +624,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4842771584266969697, guid: bcf1a5ad4e520d84999f0eacc6e31b6c, type: 3}
   m_PrefabInstance: {fileID: 8341260900131096088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6109505111210730227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2813428288080143595, guid: bcf1a5ad4e520d84999f0eacc6e31b6c, type: 3}
+  m_PrefabInstance: {fileID: 8341260900131096088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187207765504716144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627f289a49c22a44fa151721023dec0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5164753826488403066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,10 +647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f57f6ed40940b348871b74c0d84d49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunController: {fileID: 4666149676629144173}
+  gunController: {fileID: 6109505111210730227}
   health: {fileID: 0}
   bullet: {fileID: 0}
-  healthScript: {fileID: 3677148004084111031}
+  healthScript: {fileID: 0}
   healthpoint: 0
   bulletpoint: 0
   meazine: 0
@@ -695,6 +739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
+--- !u!1 &8342730873359610555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
+  m_PrefabInstance: {fileID: 8341260900696898573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8345753060954297701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4519716788627816, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
@@ -711,11 +760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627f289a49c22a44fa151721023dec0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &8342730873359610555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1487774384131766, guid: ee329c3cd08e58645834d20702d7f6c6, type: 3}
-  m_PrefabInstance: {fileID: 8341260900696898573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5164753825543668804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +775,7 @@ MonoBehaviour:
   gunController: {fileID: 4666149676629144173}
   health: {fileID: 0}
   bullet: {fileID: 0}
-  healthScript: {fileID: 3677148004084111031}
+  healthScript: {fileID: 0}
   healthpoint: 0
   bulletpoint: 0
   meazine: 0

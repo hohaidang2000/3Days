@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9205350263044352007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5134d9de14153468b48928d3e7359a, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 6dd6fc12158caa9458b6fd4b9a5ac5c8
+  position: {x: -1161.6, y: 947.2}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  duration: 1
 --- !u!114 &-8311086759980635929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +215,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  attackRange: 40
+  attackRange: 2
 --- !u!114 &-5206233824745922277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +338,7 @@ MonoBehaviour:
   - {fileID: 2820406020254752056}
   - {fileID: 8391361063670017668}
   - {fileID: -5327719184058854669}
+  - {fileID: -9205350263044352007}
 --- !u!114 &-2477494217871406671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +526,7 @@ MonoBehaviour:
   - {fileID: -5206233824745922277}
   - {fileID: 5567187013612748806}
   - {fileID: -2052188433908644149}
+  - {fileID: -9205350263044352007}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &155172079176687683

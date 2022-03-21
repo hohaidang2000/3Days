@@ -27,6 +27,7 @@ public class MenuScript : MonoBehaviour
         playerInput = new MenuInput();
         Time.timeScale = 1;
         player.enabled = true;
+        winGui.enabled = true;
         playerInput.MenuController.Enable();
         playerInput.MenuController.Pause.started += contex =>
         {
@@ -34,12 +35,13 @@ public class MenuScript : MonoBehaviour
             if (!running) { 
                 if(pause == false)
                 {
-                
+                    
                     pause = true;
                     Time.timeScale = 0;
                     Cursor.lockState = CursorLockMode.None;
                     pauseMenu.SetActive(pause);
                     player.enabled = false;
+                    winGui.enabled = false;
                 }
                 else
                 {
@@ -48,6 +50,7 @@ public class MenuScript : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     pauseMenu.SetActive(pause);
                     player.enabled = true;
+                    winGui.enabled = true;
                 }
             }
         };
@@ -68,12 +71,16 @@ public class MenuScript : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         loseMenu.SetActive(true);
+        winGui.enabled = false;
         player.enabled = false;
     }
     // Update is called once per frame
     void Update()
     {
         healthGui.SetText(playerObject.GetComponent<Health>()._health.ToString());
+        if(playerObject.GetComponent<Health>()._health <= 0){
+            loseHappen();
+        }
         winGui.SetText(count + " / " + winCount);
         if(count == winCount)
         {
@@ -83,10 +90,12 @@ public class MenuScript : MonoBehaviour
     public void WinHappen()
     {
         running = true;
+        
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         winMenu.SetActive(true);
         player.enabled = false;
+        winGui.enabled = false;
     }
     public void BackToMenu()
     {
@@ -104,6 +113,7 @@ public class MenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
         player.enabled = true;
+        winGui.enabled = true;
     }
     public void Quit()
     {
