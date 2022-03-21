@@ -4,17 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GasTank
-  - Metal
-  - ExplosiveBarrel
+  - target
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - targetMask
   - Water
   - UI
-  - Post Processing
+  - obstacleMask
   - 
   - 
   - 
