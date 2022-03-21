@@ -104,12 +104,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3b5069749f8471b4a9cebf21d0e367f2
-  position: {x: -1879.9999, y: 1451.2}
+  position: {x: -1732.7997, y: 1451.2}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  tolerance: 2
+  tolerance: 1
 --- !u!114 &-5941697233485018672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fb711f848f3aeeb40998a73c163eae51
-  position: {x: -1732.7997, y: 1451.2}
+  position: {x: -1880, y: 1451.2}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -190,7 +190,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2d847cad5354536418a110cb52e06515
-  position: {x: -1377.6001, y: 1347.9998}
+  position: {x: -1377.6001, y: 1348}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -253,8 +253,8 @@ MonoBehaviour:
   children:
   - {fileID: 2820406020254752056}
   - {fileID: -1197232485659949478}
-  - {fileID: -6222103311692318958}
   - {fileID: -5327719184058854669}
+  - {fileID: -6222103311692318958}
   - {fileID: -490241962745431123}
 --- !u!114 &-3440947477877536754
 MonoBehaviour:
