@@ -283,7 +283,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -398,6 +398,8 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   _hotTrail: {fileID: 328621789431213768, guid: 43559d27d223bf340b413fde1315c256, type: 3}
   _metalImpact: {fileID: 872853909075477886, guid: b5a092d25c55c6d43bbf3499d94e0ee7, type: 3}
+  _fireRate: 10
+  _reloadTime: 1.833
 --- !u!114 &1536714707766512412
 MonoBehaviour:
   m_ObjectHideFlags: 0

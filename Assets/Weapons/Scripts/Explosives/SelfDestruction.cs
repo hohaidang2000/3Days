@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelfDestruction : MonoBehaviour
 {
 
     #region Variables
 
-    private float _waitTime = 5f;
+    [SerializeField] private float _waitTime = 5f;
+    [SerializeField] private UnityEvent _onSelfDestruction;
 
     #endregion
 
@@ -27,6 +29,7 @@ public class SelfDestruction : MonoBehaviour
     private IEnumerator SelfDestruct()
     {
         yield return new WaitForSeconds(_waitTime);
+        _onSelfDestruction.Invoke();
         Destroy(gameObject);
     }
 
