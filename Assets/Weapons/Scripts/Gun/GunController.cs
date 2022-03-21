@@ -21,8 +21,8 @@ public class GunController : MonoBehaviour
 
     [Header("Ammo")]
 
-    [SerializeField] private int _maxAmmo = 40;
-    private int _currentAmmo;
+    [SerializeField] public int _maxAmmo = 40;
+    public int _currentAmmo;
 
     [Header("Fire")]
 

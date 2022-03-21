@@ -104,7 +104,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3b5069749f8471b4a9cebf21d0e367f2
-  position: {x: -1880.0001, y: 1451.2002}
+  position: {x: -1732.7997, y: 1451.2}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
@@ -130,6 +130,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  attackRange: 1
 --- !u!114 &-5327719184058854669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,11 +146,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fb711f848f3aeeb40998a73c163eae51
-  position: {x: -1733.0295, y: 1451.1997}
+  position: {x: -1880, y: 1451.2}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+  attackRange: 1
 --- !u!114 &-4462088139831435310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,8 +253,9 @@ MonoBehaviour:
   children:
   - {fileID: 2820406020254752056}
   - {fileID: -1197232485659949478}
-  - {fileID: -6222103311692318958}
   - {fileID: -5327719184058854669}
+  - {fileID: -6222103311692318958}
+  - {fileID: -490241962745431123}
 --- !u!114 &-3440947477877536754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +432,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  duration: 1
+  duration: 2
 --- !u!114 &-461363282140205120
 MonoBehaviour:
   m_ObjectHideFlags: 0

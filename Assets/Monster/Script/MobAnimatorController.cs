@@ -7,6 +7,10 @@ public class MobAnimatorController : MonoBehaviour
     public Animator animator;
     public string state = "idle" ;
     public float moveSpeed = 1;
+    [SerializeField] private float _waitTime = 5f;
+   
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,9 +26,17 @@ public class MobAnimatorController : MonoBehaviour
     }
     
     // Update is called once per frame
+
     public void Dead()
     {
         state = "dead";
+        StartCoroutine(SelfDestruct());
+
+    }
+    private IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(_waitTime);
+        Destroy(gameObject);
     }
     void Update()
     {
