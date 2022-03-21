@@ -62,7 +62,6 @@ public class WeaponController : MonoBehaviour
             if (Time.time - startTimeSwitch > 0.5f && !switchWeaponFinish)
             {
                 switchWeaponFinish = true;
-                Debug.Log(Time.time);
             }
             else if (!switchWeaponFinish)
             {
