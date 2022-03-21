@@ -1779,7 +1779,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-775208
+  m_Name: pb_Mesh18762
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5356,6 +5356,7 @@ GameObject:
   - component: {fileID: 754741695}
   - component: {fileID: 754741697}
   - component: {fileID: 754741696}
+  - component: {fileID: 754741698}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5411,6 +5412,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e62f9167ba95942a5ac5eebe37d583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &754741698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754741694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a864de8533d7c4dad6edbec10aae0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barrel: {fileID: 185426, guid: ba67efa6dcab9a54aac7e607f17f759c, type: 3}
+  _gasTank: {fileID: 159796, guid: 62e80a053a5f7c94f9f4c90bc293e432, type: 3}
+  _otherMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gameManager: {fileID: 754741696}
 --- !u!1001 &768560380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11375,6 +11394,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8758888183437201531, guid: 2caeb99d3229fee4aa4f3bc8c1c8fc07, type: 3}
   m_PrefabInstance: {fileID: 1742688587}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1685317570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6109505111210730227, guid: 601e635ddb7e06d40ac266cae56bb4a2, type: 3}
+  m_PrefabInstance: {fileID: 5164753826306624056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627f289a49c22a44fa151721023dec0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1689269014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14935,6 +14965,10 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 678285282}
+    - target: {fileID: 5164753826488403066, guid: 601e635ddb7e06d40ac266cae56bb4a2, type: 3}
+      propertyPath: gunController
+      value: 
+      objectReference: {fileID: 1685317570}
     - target: {fileID: 8341260899874442796, guid: 601e635ddb7e06d40ac266cae56bb4a2, type: 3}
       propertyPath: m_RootOrder
       value: 1
