@@ -7,9 +7,12 @@ public class SpawnExplosives : MonoBehaviour
 
     #region Variables
 
-    [SerializeField] private GameObject _explosives;
+    [SerializeField] private GameObject _barrel;
+    [SerializeField] private GameObject _gasTank;
     [SerializeField] private LayerMask _otherMask;
-    private bool _spawnable = true;
+    private int maxSpawn = 100;
+    private int spawnCount = 0;
+    public MenuScript gameManager;
     #endregion
 
 
@@ -24,7 +27,7 @@ public class SpawnExplosives : MonoBehaviour
     void Update()
     {
 
-        if (_spawnable)
+        if (spawnCount < maxSpawn)
         {
             RandomSpawn();
         }
@@ -38,31 +41,25 @@ public class SpawnExplosives : MonoBehaviour
     private void RandomSpawn()
     {
 
-        Vector3 rp = RandomPosition();
-        if (rp != Vector3.zero)
+        float x = Random.Range(-40, 40);
+        float z = Random.Range(-40, 40);
+
+        Vector3 rp = new Vector3(x, 10f, z);
+
+        float r = Random.Range(-1, 1);
+
+        if (r >= 0)
         {
-            Instantiate(_explosives, rp, Quaternion.identity);
-
+            _barrel.GetComponent<Health>().gameManager = gameManager;
+            Instantiate(_barrel, rp, Quaternion.identity);
         }
-        else
+        else if (r < 0)
         {
-            _spawnable = false;
+            _gasTank.GetComponent<Health>().gameManager = gameManager;
+            Instantiate(_gasTank, rp, Quaternion.identity);
         }
 
-    }
-
-    private Vector3 RandomPosition(int time = 0)
-    {
-        if (time > 20)
-            return Vector3.zero;
-
-        float x = Random.Range(-50, 50);
-        float z = Random.Range(-50, 50);
-
-        Vector3 spherePos = new Vector3(x, 1f, z);
-        if (Physics.CheckSphere(spherePos, 5f, _otherMask))
-            return RandomPosition(++time);
-        return spherePos;
+        spawnCount++;
 
     }
 
