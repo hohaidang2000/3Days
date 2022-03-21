@@ -23,7 +23,7 @@ public class Attack : ActionNode
         {
             if (targetsInViewRadius[0].gameObject.tag == "Player")
             {
-                context.transform.GetComponent<Damage>().InflictDamage(context.targetTransform.targetGameObject);
+                context.transform.GetComponent<Damage>().InflictDamage(context.targetTransform.targetGameObject.gameObject);
             }
         }
         context.animator.SetTrigger("attack");
