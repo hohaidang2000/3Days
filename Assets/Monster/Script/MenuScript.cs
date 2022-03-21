@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuScript : MonoBehaviour
 {
+    public GameObject playerObject;
+    public CharacterController playerController;
     public int count = 0;
-    public int winCount = 1;
+    public int winCount = 20;
     public PlayerController player;
     MenuInput playerInput;
     public bool running = false;

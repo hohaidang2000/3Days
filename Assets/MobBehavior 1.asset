@@ -126,12 +126,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7c6cb000d4df503429673964a8a35752
-  position: {x: -821.60004, y: 1148.7999}
+  position: {x: -821.60004, y: 1148.7998}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  pullSpeed: 5
+  pullSpeed: 10
 --- !u!114 &-5941697233485018672
 MonoBehaviour:
   m_ObjectHideFlags: 0

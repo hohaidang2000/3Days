@@ -24,6 +24,7 @@ public class MoveToPosition : ActionNode
     }
 
     protected override State OnUpdate() {
+        context.agent.destination = blackboard.moveToPosition;
         if (context.agent.pathPending) {
             return State.Running;
         }

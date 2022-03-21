@@ -42,12 +42,9 @@ public class CheckIsInRange : ActionNode
 			Transform target = targetsInViewRadius[0].transform;
 			Vector3 dirToTarget = (target.position - context.transform.position).normalized;
 			float dstToTarget = Vector3.Distance(context.transform.position, target.position);
-			
-			{
-				seePlayer = true;
-				blackboard.moveToPosition = target.transform.position;
+			seePlayer = true;
+			blackboard.moveToPosition = target.transform.position;
 
-			}
 		}
 			
 		
