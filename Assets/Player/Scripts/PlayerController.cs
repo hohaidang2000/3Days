@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGround;
     private float speed;
-    private float gravity = -9.81f;
+    private float gravity = -20f;
     private float grounDistance = 0.01f;
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 10f;
-    [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private float jumpHeight = 5f;
     [SerializeField] private Camera playerCamera;
     
     private Vector3 cameraRotation;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         
         if (isGround && velocity.y < 0 ) 
         {
-            velocity.y= 0f;
+            velocity.y= -2f;
         }
         else 
         {
