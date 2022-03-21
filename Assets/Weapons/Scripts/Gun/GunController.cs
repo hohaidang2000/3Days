@@ -30,6 +30,7 @@ public class GunController : MonoBehaviour
     [SerializeField] private ParticleSystem _muzzleFlash;
     [SerializeField] private TrailRenderer _hotTrail;
     [SerializeField] private ParticleSystem _metalImpact;
+    [SerializeField] private ParticleSystem _fleshImpact;
 
     private bool _isFire;
     [SerializeField] private float _fireRate;
@@ -108,7 +109,7 @@ public class GunController : MonoBehaviour
                 Fire();
                 _lastFired = Time.time;
                 _currentAmmo -= 1;
-                Instantiate(_muzzleFlash, _barrel.position, Quaternion.Euler(-transform.forward));
+                Instantiate(_muzzleFlash, _barrel.position, Quaternion.identity);
                 _animator.SetBool(_fireHash, true);
             }
         }
@@ -128,7 +129,10 @@ public class GunController : MonoBehaviour
     {
         TrailRenderer trail = Instantiate(_hotTrail, _barrel.position, Quaternion.identity);
         StartCoroutine(SpawnTrail(trail, hit.point));
-        Instantiate(_metalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+        if (hit.transform.CompareTag("Enemy"))
+            Instantiate(_fleshImpact, hit.point, Quaternion.LookRotation(hit.normal));
+        else
+            Instantiate(_metalImpact, hit.point, Quaternion.LookRotation(hit.normal));
     }
 
     private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 hitPoint)
