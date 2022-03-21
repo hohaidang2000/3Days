@@ -463,7 +463,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3484750934856460296}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Speed: 4
   m_Acceleration: 1
   avoidancePriority: 50
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  _health: 400
+  _health: 100
   _onDie:
     m_PersistentCalls:
       m_Calls:
