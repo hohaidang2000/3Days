@@ -10,7 +10,11 @@ public class SpawnTrigger : MonoBehaviour
     public enum SpawnState { SPAWNING, WAITING, COUNTING }
     // Start is called before the first frame update
     
-    public Transform enemy;
+    public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject player;
+    public CharacterController playerController;
+    public MenuScript gameManager;
     public int maxCount = 10;
     public int count = 0;
     public float rate;
@@ -47,19 +51,33 @@ public class SpawnTrigger : MonoBehaviour
 
         IEnumerator SpawnWave()
         {
-            
+            int i = Random.Range(0, 30);
             state = SpawnState.SPAWNING;
-            SpawnEnemy(enemy);
+            if (i < 29)
+            {
+                SpawnEnemy(enemy);
+            }
+            else
+            {
+                SpawnEnemy(enemy2);
+            
+            }
+            
             yield return new WaitForSeconds(1f / rate);
             
             state = SpawnState.WAITING;
             yield break;
         }
-        void SpawnEnemy(Transform _enemy)
+        void SpawnEnemy(GameObject _enemy)
         {
             count += 1;
             Debug.Log("Spawning Enemy" + _enemy.name);
-            Instantiate(_enemy, transform.position, transform.rotation);
+            GameObject zombie = (GameObject) Instantiate(_enemy, transform.position, transform.rotation);
+            zombie.GetComponent<TargetTransform>().tartgetController = playerController;
+            zombie.GetComponent<TargetTransform>().targetGameObject = player;
+            zombie.GetComponent<Health>().gameManager = gameManager;
+
+
         }
     
     }

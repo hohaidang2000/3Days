@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class Health :MonoBehaviour
 {
-
+    public MenuScript gameManager;
     #region Variables
 
-    [SerializeField] private float _health;
+    [SerializeField] public float _health;
 
     [SerializeField] private UnityEvent _onDie;
 
@@ -17,20 +17,24 @@ public class Health :MonoBehaviour
     #endregion
 
     #region Methods
-
+    private bool running = false;
     public void TakeDamage(float damage)
     {
         _health -= damage;
 
         _onTakeDamage.Invoke();
 
-        if (_health <= 0f)
+        if (_health <= 0f && !running)
+        {
+            running = true;
             Die();
+        }
         
     }
 
     private void Die()
     {
+        gameManager.Count();
         _onDie.Invoke();
     }
 
