@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 public class MenuScript : MonoBehaviour
 {
     public GameObject playerObject;
@@ -18,7 +17,6 @@ public class MenuScript : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public bool pause = false;
-    public TextMeshProUGUI winGui;
     // Start is called before the first frame update
     void Awake()
     {   
@@ -72,7 +70,6 @@ public class MenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        winGui.SetText(count + " / " + winCount);
         if(count == winCount)
         {
             WinHappen();
