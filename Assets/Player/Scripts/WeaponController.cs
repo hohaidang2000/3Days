@@ -29,16 +29,17 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        controls.Weapon.Aim.performed += ctx => startAim=true;
-        controls.Weapon.Aim.canceled += ctx => startAim=false;
+        controls.Weapon.Aim.performed += ctx => startAim = true;
+        controls.Weapon.Aim.canceled += ctx => startAim = false;
 
         controls.Weapon.SwitchWeapon.performed += ctx => mouseScroll = ctx.ReadValue<float>();
     }
     void Start()
-    {   switchWeapon=0;
+    {   
+        switchWeapon=0;
         mouseScroll=0;
         startAim=false;
-        switchWeaponFinish=true;
+        switchWeaponFinish = true;
         rifle.SetActive(true);
         pistol.SetActive(false);
     }
@@ -49,6 +50,7 @@ public class WeaponController : MonoBehaviour
     }
     void Aim(){
         if (!switchWeaponFinish) return;
+
         if (startAim) 
             currentWeapon.transform.position = Vector3.Lerp(currentWeapon.transform.position, aiming.position, Time.deltaTime*aimSpeed);
         else

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     private PlayerControls controls;
-    [SerializeField] private CharacterController controller;
+    private CharacterController controller;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
     private Vector2 _move;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool isGround;
     private float speed;
     private float gravity = -20f;
-    private float grounDistance = 0.01f;
+    private float grounDistance = 0.1f;
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpHeight = 5f;
@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        controller = GetComponent<CharacterController>();
 
         speed = walkSpeed;
         
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-        Vector3 _temp = transform.right * _move.x +transform.forward * _move.y;
+        Vector3 _temp = transform.right * _move.x + transform.forward * _move.y;
         controller.Move(_temp * speed * Time.deltaTime);
     }
     void IsGround(){
@@ -105,7 +107,7 @@ public class PlayerController : MonoBehaviour
         
         if (isGround && velocity.y < 0 ) 
         {
-            velocity.y= -2f;
+            velocity.y = -2f;
         }
         else 
         {
