@@ -5,7 +5,7 @@ using TheKiwiCoder;
 
 public class Attack : ActionNode
 {
-    public float attackRange = 1;
+    public float attackRange = 6;
    
    
     protected override void OnStart() {
@@ -17,16 +17,21 @@ public class Attack : ActionNode
     void BeginAttack()
     {
         
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(context.transform.position, attackRange, 3);
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(context.transform.position, attackRange);
         
+  
         if (targetsInViewRadius.Length > 0)
         {
-            if (targetsInViewRadius[0].gameObject.tag == "Player")
-            {
-                context.transform.GetComponent<Damage>().InflictDamage(context.targetTransform.targetGameObject.gameObject);
-            }
+            foreach (Collider hit in targetsInViewRadius)
+                if (hit.gameObject.tag == "Player")
+                {
+                    Debug.Log("damage");
+                    context.gameObject.GetComponent<Damage>().InflictDamage(hit.gameObject);
+                    context.animator.SetTrigger("attack");
+                 }
+           
         }
-        context.animator.SetTrigger("attack");
+        
 
     }
     protected override State OnUpdate() {
